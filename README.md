@@ -1,0 +1,1 @@
+# SOC-lab-in-Microsoft-Sentinel-on-free-tier
