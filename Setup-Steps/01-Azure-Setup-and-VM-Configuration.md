@@ -178,7 +178,7 @@ We will create:
    - **Size**: B2s or higher
 3. Allow RDP (3389) in inbound ports
 4. Click **Review + Create** → **Create**
-
+![1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm1.png)
 📸 *[Insert Screenshot: Windows VM config]*
 
 ---
