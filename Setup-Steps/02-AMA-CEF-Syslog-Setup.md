@@ -110,7 +110,8 @@ In this SOC lab, we used **two different connectors** on the **Linux syslog gate
 
 -After Completing these steps Verify On Linux Machine: **There you will see 2 json file 1 for syslog DCR and 2nd for CEF DCR in which the DCR rule Id will be available**
 
-```sudo -i
+```
+   sudo -i
    cd /etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/
    ls
 ```
@@ -145,7 +146,9 @@ In this SOC lab, we used **two different connectors** on the **Linux syslog gate
 - Go to **Sentinel → Data Connectors → Common Event Format → Manage → Common Event Format(CEF) via AMA → Open Connector Page**
 - Open connector page
 - From the connector page, copy the command line that appears under Run the following command to install and apply the CEF collector:
-```sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py```
+```
+sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
+```
 - use python3 if python gives error
 
 
