@@ -27,19 +27,19 @@ We will create:
    - **Region**: East US (or closest region)
 5. Click **Review + Create** → **Create**
 
-![1](https://github.com/user-attachments/assets/cd0ec8fc-3b9f-4082-b778-e9f638e8d970)
+![1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/01.Create%20Resource%20Group/1.png)
 
-![2](https://github.com/user-attachments/assets/56439bb3-48fd-4ca8-ac61-fb05e58e9cf5)
+![2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/01.Create%20Resource%20Group/2.png)
 
-![3](https://github.com/user-attachments/assets/4deac320-e3c5-4014-99f7-7dd023cf4a26)
+![3](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/01.Create%20Resource%20Group/3.png)
 
-![4](https://github.com/user-attachments/assets/54c1d8b9-0f48-4fcb-a6fd-fa3fb875634e)
+![4](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/01.Create%20Resource%20Group/4.png)
 
-![5](https://github.com/user-attachments/assets/ba4779ce-0722-42e7-bc5e-b4c8e8cc3232)
+![5](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/01.Create%20Resource%20Group/5.png)
 
-![6](https://github.com/user-attachments/assets/9a218e04-c5ed-4d5e-8050-845270272796)
+![6](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/01.Create%20Resource%20Group/6.png)
 
-![7](https://github.com/user-attachments/assets/24cd02a0-33e0-4135-89f1-8f915a44d2b3)
+![7](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/01.Create%20Resource%20Group/7.png)
 
 
 
