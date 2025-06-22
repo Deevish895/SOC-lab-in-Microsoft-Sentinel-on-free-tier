@@ -119,21 +119,21 @@ In this SOC lab, we used **two different connectors** on the **Linux syslog gate
 
  ![cef-con1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
 
-![cef-con2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+![cef-con2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con2.png).
 
-![cef-con3](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+![cef-con3](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con3.png).
 
-![cef-con4](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+![cef-con4](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con4.png).
 
-![cef-con5](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+![cef-con5](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con5.png).
 
-![cef-con6](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+![cef-con6](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con6.png).
 
-![cef-con7](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+![cef-con7](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con7.png).
 
-![cef-con8](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+![cef-con8](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con8.png).
 
-![DCR-verify-on-linux](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+![DCR-verify-on-linux](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/DCR-verify-on-linux.png).
 
   
 
@@ -142,71 +142,69 @@ In this SOC lab, we used **two different connectors** on the **Linux syslog gate
 
 ### ✅ Step 4: Configure **Log Forwarder On Linux**
 
-- Go to ** Sentinel → Data Connectors → Common Event Format → Manage → Common Event Format(CEF) via AMA → Open Connector Page**
+- Go to **Sentinel → Data Connectors → Common Event Format → Manage → Common Event Format(CEF) via AMA → Open Connector Page**
 - Open connector page
-- Select same **Linux VM**
-- Click **+ Create data collection rule**
-- Scope: Linux VM
-- Destination: Log Analytics Workspace
-
-
----
-
-
-### ✅ Step 4: Configure **rsyslog on Linux**
-
-1. SSH into your Linux VM  
-2. Edit `/etc/rsyslog.conf` or `/etc/rsyslog.d/99-cef.conf`  
-3. Add listener configuration (TCP or UDP):
-
-```bash
-# For TCP
-module(load="imtcp")
-input(type="imtcp" port="514")
-
-# Or for UDP
-module(load="imudp")
-input(type="imudp" port="514")
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-### 🟢 Step 5: Configure Linux Syslog Receiver (CEF Format)
-
-On your Linux VM (via SSH or Azure Bastion), run the official Microsoft script:
-
-```bash
-curl -s https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py | sudo python3
+- From the connector page, copy the command line that appears under Run the following command to install and apply the CEF collector:
+```sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
 ```
+- use python3 if python gives error
+
+
+  ![cef-for1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-for1.png)
+
+  ![cef-for2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-for2.png)
+
+  ![cef-verify1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-verify1.png)
+
+  ![cef-verify2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-verify2.png)
+
+  
 
 
 
 ---
+### ✅ Step 6 Verify the connector
 
-### 🟢 Step 6: Allow Syslog Traffic on Port 514 In NSG
+- verify that the syslog is running on the UDP port and that the AMA is listening, run this command:
+   ```netstat -lnptv```
+- Capture messages sent from a logger or a connected device, run this command in the background:
+  ```tcpdump -i any port 514 -A -vv &```
+- Send a Mock test Log
+  ```logger -p local4.warn -P 514 -n 127.0.0.1 --rfc3164 -t CEF "0|Mock-test|MOCK|common=event-format-test|end|TRAFFIC|1|rt=$common=event-formatted-receive_time"```
+- Go to **Sentinel → Search → KQL Mode:**
+  ```CommonSecurityLog```
+
+
+---
+
+### 🟢 Step 6: Allow Syslog Traffic on Port 514 In NSG for collecting CEF from On-Prem Palo Alto
 
 #### In Azure:
 
-- Go to your Linux VM → **Networking → Inbound Port Rules**
+- Go to your Linux VM → **Resource group (That we Created) →  Look for *Linux-CEF.NSG* → Inbound Rule **
 - Add rule:
   - Protocol: TCP & UDP
   - Port: 514
   - Priority: lower than deny rules
   - Action: Allow
 
-#### In Linux VM:
+ ![nsg1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/10.configure%20nsg%20for%20internet%20cef%20logs/nsg1.png)
 
-```bash
-sudo ufw allow 514/tcp
-sudo ufw allow 514/udp
-```
+ ![nsg2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/10.configure%20nsg%20for%20internet%20cef%20logs/nsg1.png)
+
+---
+
+## ✅ Next Steps:
+
+➡️ Go to: **Configure Palo Alto Firewall to Forward Logs in CEF Format.md**  
+We’ll now configure:
+
+- Palo Alto log forwarding
+
+
+---
+
+## 🙌 Author
+
+**Deepak Vishwakarma**  
+> A cybersecurity enthusiast documenting hands-on SOC projects.
