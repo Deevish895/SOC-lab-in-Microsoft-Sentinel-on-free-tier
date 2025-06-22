@@ -23,9 +23,11 @@ We will create:
 3. Click **+ Create**
 4. Enter:
    - **Subscription**: Free Trial / Pay-As-You-Go
-   - **Resource Group Name**: `SOC-PA-Sentinel-RG`
+   - **Resource Group Name**: `Home-Soc`
    - **Region**: East US (or closest region)
 5. Click **Review + Create** → **Create**
+
+📸 *[Demonstrated Screenshots]*
 
 ![1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/01.Create%20Resource%20Group/1.png)
 
@@ -54,41 +56,42 @@ We will create:
 1. In Azure Portal, search for **"Log Analytics workspaces"**
 2. Click **+ Create**
 3. Fill:
-   - **Resource Group**: `SOC-PA-Sentinel-RG`
-   - **Name**: `SOC-LAW`
+   - **Resource Group**: `Home-Soc`
+   - **Name**: `HomeSoc-Logspace`
    - **Region**: East US
 4. Click **Review + Create** → **Create**
 
-📸 *[Insert Screenshot: LAW creation]*
+📸 *[Demonstrated Screenshots]*
 
-![8](https://github.com/user-attachments/assets/b460a892-c76e-4eeb-9ba7-9b5ca5d57acc)
+![8](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/02.Configure%20Log%20Analytic%20Workspace/8.png)
 
-![9](https://github.com/user-attachments/assets/dacec575-f696-492f-937a-42371784feda)
+![9](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/02.Configure%20Log%20Analytic%20Workspace/9.png)
 
-![10](https://github.com/user-attachments/assets/480ae47b-298e-41b8-8fa7-ecff5d133590)
+![10](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/02.Configure%20Log%20Analytic%20Workspace/10.png)
 
-![11](https://github.com/user-attachments/assets/233ff656-837a-4a8d-b7ad-f426acbac682)
+![11](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/02.Configure%20Log%20Analytic%20Workspace/11.png)
 
 ---
 
 ## ✅ Step 3: Enable Microsoft Sentinel
 
 1. Search for **Microsoft Sentinel**
-2. Click **+ Add**
-3. Choose workspace: `SOC-LAW`
+2. Click **+ Create**
+3. Choose workspace: `HomeSoc-Logspace`
 4. Click **Add Microsoft Sentinel**
 
-   ![sent1](https://github.com/user-attachments/assets/f7c2d421-b6d3-45b1-8b64-5bf6c4bb008a)
+📸 *[Demonstrated Sceernshots for Enabling Sentinel]*
 
-   ![sent2](https://github.com/user-attachments/assets/c76609c0-6c0c-481f-8b93-1740258cb9bc)
+   ![sent1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/03.Configure%20Sentinel/sent1.png)
 
-   ![sent3](https://github.com/user-attachments/assets/92e76410-526f-4ce2-afc3-f9efebe97b7c)
+   ![sent2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/03.Configure%20Sentinel/sent2.png)
 
-   ![sent4](https://github.com/user-attachments/assets/b9ced8aa-5658-4c46-9f9b-a5911b2c39c4)
+   ![sent3](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/03.Configure%20Sentinel/sent3.png)
+
+   ![sent4](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/03.Configure%20Sentinel/sent4.png)
 
    
 
-📸 *[Insert Screenshot: Sentinel attached to workspace]*
 
 ---
 
