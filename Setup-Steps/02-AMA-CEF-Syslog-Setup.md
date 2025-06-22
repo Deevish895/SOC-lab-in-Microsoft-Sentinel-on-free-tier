@@ -63,10 +63,10 @@ In this SOC lab, we used **two different connectors** on the **Linux syslog gate
 - Facility: You can leave default (or add if customized)
 - Destination: Log Analytics Workspace
 
-#Verify the AMA Agent 
+##Verify the AMA Agent 
 - Go to Virtual Machine → Select Machine → Setting → Extension + application → You will see: **AMA Agent**
 
-#Verify the The Syslogs of Linux In the Sentinel
+##Verify the The Syslogs of Linux In the Sentinel
 - Go to **Sentinel → Logs → KQL Mode**
 - Search ```Syslog```
 
@@ -108,7 +108,7 @@ In this SOC lab, we used **two different connectors** on the **Linux syslog gate
 - Scope: Linux VM
 - Destination: Log Analytics Workspace
 
-**After Completing these steps Verify On Linux Machine: There you will see 2 jason file 1 for syslog DCR and 2nd for CEF DCR in which the DCR rule Id will be available** 
+##After Completing these steps Verify On Linux Machine: There you will see 2 jason file 1 for syslog DCR and 2nd for CEF DCR in which the DCR rule Id will be available
 
 ```sudo -i
    cd /etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/
