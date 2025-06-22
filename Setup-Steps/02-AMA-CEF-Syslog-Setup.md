@@ -145,8 +145,7 @@ In this SOC lab, we used **two different connectors** on the **Linux syslog gate
 - Go to **Sentinel → Data Connectors → Common Event Format → Manage → Common Event Format(CEF) via AMA → Open Connector Page**
 - Open connector page
 - From the connector page, copy the command line that appears under Run the following command to install and apply the CEF collector:
-```sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
-```
+```sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py```
 - use python3 if python gives error
 
 
@@ -181,7 +180,7 @@ In this SOC lab, we used **two different connectors** on the **Linux syslog gate
 
 #### In Azure:
 
-- Go to your Linux VM → **Resource group (That we Created) →  Look for *Linux-CEF.NSG* → Inbound Rule **
+- Go to your Linux VM → **Resource group (That we Created) →  Look for *Linux-CEF.NSG* → Inbound Rule**
 - Add rule:
   - Protocol: TCP & UDP
   - Port: 514
