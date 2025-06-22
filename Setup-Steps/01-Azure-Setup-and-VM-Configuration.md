@@ -99,26 +99,26 @@ We will create:
 
 1. Search for **Virtual Networks** → **+ Create**
 2. Enter:
-   - **Name**: `SOC-VNET`
-   - **Address Space**: `10.0.0.0/16`
+   - **VIrtual Network Name**: `HomeSocVnet`
+   - **Address Space**: `Default 10.0.0.0/16`
    - **Subnet Name**: `SOC-Subnet`
    - **Subnet Address Range**: `10.0.1.0/24`
-   - **Resource Group**: `SOC-PA-Sentinel-RG`
+   - **Resource Group**: `Home-Soc`
 3. Click **Review + Create** → **Create**
 
 📸 *[Insert Screenshot: VNet creation]*
 
-![vnet1](https://github.com/user-attachments/assets/ca7f2894-06c2-4a49-a4f2-f4697dab7521)
+![vnet1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/04.Configure%20Virtual%20Network/vnet1.png)
 
-![vnet2](https://github.com/user-attachments/assets/3a8eda16-6714-4c8a-835a-44677e261443)
+![vnet2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/04.Configure%20Virtual%20Network/vnet2.png)
 
-![vnet3](https://github.com/user-attachments/assets/2c956ed0-32ed-44bf-928d-1610924fd83d)
+![vnet3](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/04.Configure%20Virtual%20Network/vnet3.png)
 
-![vnet4](https://github.com/user-attachments/assets/1620a830-8a49-4900-83ed-3f4a827cbff5)
+![vnet4](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/04.Configure%20Virtual%20Network/vnet4.png)
 
-![vnet5](https://github.com/user-attachments/assets/a39dcf42-1c8e-4491-8a2e-464112705ef7)
+![vnet5](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/04.Configure%20Virtual%20Network/vnet5.png)
 
-![vnet6](https://github.com/user-attachments/assets/95ff2fc7-8c72-4885-b98d-ff62bc6ac0d8)
+![vnet6](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/04.Configure%20Virtual%20Network/vnet6.png)
 
 
 ---
@@ -139,31 +139,28 @@ We will create:
 
 📸 *[Insert Screenshot: Linux VM config]*
 
-![vmlin1](https://github.com/user-attachments/assets/1f551cbd-22e0-4079-889c-e5ce388f219d)
+![vmlin1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin1.png)
 
-![vmlin2](https://github.com/user-attachments/assets/269376d0-7bed-4386-b961-cfe24ad90109)
+![vmlin2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin2.png)
 
-![vmlin3](https://github.com/user-attachments/assets/029b07ca-1dc4-4ddf-9c01-d4b165b24593)
+![vmlin3](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin3.png)
 
-![vmlin4](https://github.com/user-attachments/assets/de556a1c-4df5-4d8e-aa33-ec78745e8bda)
+![vmlin4](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin4.png)
 
-![vmlin5](https://github.com/user-attachments/assets/89835d93-a3f2-48f4-928d-35dda18fde24)
+![vmlin5](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin5.png)
 
-![vmlin6](https://github.com/user-attachments/assets/04a145bb-6182-4070-898d-fa19b0289593)
+![vmlin6](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin6.png)
 
-![vmlin7](https://github.com/user-attachments/assets/acef1c19-e3a2-4a78-b1c6-99fd4e571f97)
+![vmlin7](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin7.png)
 
-![vmlin8](https://github.com/user-attachments/assets/d07b7f8b-98cd-4b72-aeb4-c354dcc7b741)
+![vmlin8](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin8.png)
 
-![vmlin9](https://github.com/user-attachments/assets/97d6ba9a-9e23-4aaa-a8db-ec40705474e2)
+![vmlin9](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin9.png)
 
-![vmlin10](https://github.com/user-attachments/assets/f327e44a-fbfa-4158-96b0-76d6a97b23cd)
+![vmlin10](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlinVerify.png)
 
-![vmlin11](https://github.com/user-attachments/assets/db0089a4-323e-4f02-a94f-eef43cbd1c36)
+![vmlin11](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlinVerify2.png)
 
-![lin1](https://github.com/user-attachments/assets/ad6a405a-32dd-4c73-be75-b9e0d858eaec)
-
-![lin2](https://github.com/user-attachments/assets/d2f28691-d211-454a-a266-a29f568e7f0a)
 
 
 
