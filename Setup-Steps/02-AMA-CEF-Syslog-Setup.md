@@ -108,7 +108,7 @@ In this SOC lab, we used **two different connectors** on the **Linux syslog gate
 - Scope: Linux VM
 - Destination: Log Analytics Workspace
 
-## After Completing these steps Verify On Linux Machine: **There you will see 2 json file 1 for syslog DCR and 2nd for CEF DCR in which the DCR rule Id will be available**
+-After Completing these steps Verify On Linux Machine: **There you will see 2 json file 1 for syslog DCR and 2nd for CEF DCR in which the DCR rule Id will be available**
 
 ```sudo -i
    cd /etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/
