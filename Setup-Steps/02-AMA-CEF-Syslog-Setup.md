@@ -149,13 +149,13 @@ In this SOC lab, we used **two different connectors** on the **Linux syslog gate
 - use python3 if python gives error
 
 
-  ![cef-for1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-for1.png)
+  ![cef-for1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/09.Configure%20CEF%20log%20Forwarder%20on%20Linux/cef-for1.png)
 
-  ![cef-for2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-for2.png)
+  ![cef-for2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/09.Configure%20CEF%20log%20Forwarder%20on%20Linux/cef-for2.png)
 
-  ![cef-verify1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-verify1.png)
+  ![cef-verify1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/09.Configure%20CEF%20log%20Forwarder%20on%20Linux/cef-verify1.png)
 
-  ![cef-verify2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-verify2.png)
+  ![cef-verify2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/09.Configure%20CEF%20log%20Forwarder%20on%20Linux/cef-verify2.png)
 
   
 
