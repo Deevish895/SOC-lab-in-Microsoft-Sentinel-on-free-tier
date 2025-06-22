@@ -1,35 +1,65 @@
-# 🛡️ 03 - Sentinel Connectors, Analytics Rules, and Workbooks
+# 🔧 02a - Configure Palo Alto Firewall to Forward Logs in CEF Format
 
-Now that logs from Palo Alto are successfully reaching Sentinel, it’s time to configure **correlation rules**, enable **normalization via ASIM**, and build **visual dashboards** to monitor and alert.
-
----
-
-## 🧠 What We’ll Cover
-
-1. Enable **ASIM normalization**
-2. Activate built-in **Analytics Rules**
-3. View & understand **incidents**
-4. Set up **Workbooks** (dashboards)
-5. Simulate logs to **trigger alerts**
+To ingest logs into Microsoft Sentinel via a Linux syslog gateway, Palo Alto must be configured to forward logs in **CEF (Common Event Format)** via Syslog.
 
 ---
 
-## 🔌 Step 1: Enable ASIM Parsers (Normalization)
+## 📍 Step 1: Create Syslog Server Profile
 
-ASIM (Advanced Security Information Model) helps Sentinel normalize logs for use in detection rules and queries.
+1. Log in to Palo Alto Web UI
+2. Navigate to:
+   - **Device → Server Profiles → Syslog**
+3. Click **Add**
+4. Configure: Servers
+   - **Name**: `Sentinel-CEF`
+   - **Syslog Server**: IP address of your Linux VM (Syslog Gateway)
+   - **Transport**: UDP or TCP (must match your Linux config)
+   - **Port**: `514`
+   - **Format**: **BSD (Use CEF format)**
+5. Configure: Custom Log Format
+   - Click And And Manually add CEF format From
+      
 
-### ✅ Check if ASIM Parser is Installed
+✅ Click **OK** and **Commit** changes
 
-1. Go to **Sentinel → Content Hub**
-2. Search: `ASIM - Palo Alto`
-3. If not installed, click **Install**
-4. Confirm you see:
-   - `ASimNetworkSession`
-   - `ASimAuthentication`
-   - Other parsers for Palo Alto
+---
 
-These will parse logs into a standard schema like:
+## 📍 Step 2: Create Log Forwarding Profile
 
-```kql
-imNetworkSession
-| where EventVendor == "Palo Alto Networks"
+1. Go to:
+   - **Objects → Log Forwarding**
+2. Click **Add**
+3. **Name** it: `CEF-Forwarding`
+4. Under **Log Settings** (e.g., Traffic, Threat, System):
+   - Click **Add** under each
+   - Enable forwarding to your **Syslog Profile (`Sentinel-CEF`)**
+   - Optionally filter logs (e.g., only critical or all)
+
+✅ Click **OK** and **Commit** changes
+
+---
+
+## 📍 Step 3: Apply Log Forwarding to Security Policies
+
+1. Go to:
+   - **Policies → Security**
+2. Edit your active allow/deny rules
+3. Under **Actions → Log Forwarding**, select: `CEF-Forwarding`
+4. Apply to:
+   - Threat Prevention logs (Intrusion, Virus, etc.)
+   - Traffic logs (session start/end)
+   - URL filtering logs
+
+✅ Click **OK** and **Commit** your policies
+
+---
+
+## 🧪 Verification
+
+After configuration:
+
+- SSH into your Linux Syslog VM
+- Run:
+
+
+
