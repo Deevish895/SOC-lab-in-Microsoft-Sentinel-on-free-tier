@@ -166,9 +166,13 @@ We will create:
 
 ![vmlin9](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin9.png)
 
-![vmlin10](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlinVerify.png)
+![vmlin10](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin10.png)
 
-![vmlin11](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlinVerify2.png)
+![vmlin11](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin11.png)
+
+![vmlinVerify](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlinVerify.png)
+
+![vmlinVerify2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlinVerify2.png)
 
 
 
@@ -177,30 +181,62 @@ We will create:
 
 ## ✅ Step 6: Create Windows VM (For Attacks)
 
-1. Go to **Virtual Machines** → **+ Create**
+1. Search for **Virtual Machines** → **+ Create**
 2. Configure:
-   - **Name**: `Windows-Attacker-VM`
+   - **Virtual Machine Name**: `HomeSoc-Win`
+   - **Resource Group**: Select `Home-Soc`
    - **Region**: East US
-   - **Image**: Windows Server 2022
-   - **Username/Password**
-   - **VNet/Subnet**: Same as above
-   - **Size**: B2s or higher
-3. Allow RDP (3389) in inbound ports
-4. Click **Review + Create** → **Create**
-![1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm1.png)
+   - **Image**: Windows Server 2019
+   - **Size**: B1s or B2s
+   - **Authentication**: Password
+   - **Username**: `azureuser`
+4.  Under **Disk**:
+   - **Os Disk Size **: As per your need I chose Default
+   - **OS Disk Type**: Select Premium
+   - **Select**: Delete With VM
+5.  Under **Networking**:
+   - **Virtual Network**: Select That we created `HomeSocVnet`
+   - ** Subnet**: `Default`
+   - **Select**: Delete With VM
+   -  Under **Inbound Ports**, select: Allow all or We will configure in NSG part (lab only)
+6. Click **Review + Create** → **Create**
+7. Verify Your Public IP and take RDP
 📸 *[Insert Screenshot: Windows VM config]*
+
+![vm1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm1.png)
+
+![vm2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm2.png)
+
+![vm3](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm3.png)
+
+![vm4](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm4.png)
+
+![vm5](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm5.png)
+
+![vm6](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm6.png)
+
+![vm7](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm7.png)
+
+![vm8](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm8.png)
+
+![vm9](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm9.png)
+
+![vm10](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm10.png)
+
+![vm11](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/05.Configure%20Windows%20VM/vm11.png)
+
+
 
 ---
 
 ## ✅ Step 7: Verify Everything
 
 - Go to **Resource Group** → You should see:
-   - `SOC-VNET`
-   - `SOC-LAW`
+   - `HomeSocVnet`
+   - `HomeSoc-Logspace`
    - 2 VMs
    - Microsoft Sentinel linked
 
-📸 *[Insert Screenshot: Resource Group Overview]*
 
 ---
 
@@ -208,9 +244,10 @@ We will create:
 
 ➡️ Go to: **02-AMA-CEF-Syslog-Setup.md**  
 We’ll now configure:
-- CEF logging on Linux
-- Palo Alto log forwarding
 - AMA and DCR
+- CEF and Syslog logging on Linux
+- Palo Alto log forwarding
+
 
 ---
 
