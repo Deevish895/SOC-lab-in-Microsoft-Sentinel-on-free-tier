@@ -127,17 +127,26 @@ We will create:
 
 1. Search for **Virtual Machines** → **+ Create**
 2. Configure:
-   - **Name**: `Syslog-Gateway-VM`
+   - **Virtual Machine Name**: `Linux-CEF`
+   - **Resource Group**: Select `Home-Soc`
    - **Region**: East US
    - **Image**: Ubuntu 22.04 LTS
    - **Size**: B1s or B2s
+   - **Authentication**: Password
    - **Username**: `azureuser`
-   - **Authentication**: Password or SSH
-   - **VNet**: `SOC-VNET`, Subnet: `SOC-Subnet`
-3. Under **Inbound Ports**, select: Allow all (lab only)
-4. Click **Review + Create** → **Create**
+4.  Under **Disk**:
+   - **Os Disk Size **: As per your need I chose Default
+   - **OS Disk Type**: Select Premium
+   - **Select**: Delete With VM
+5.  Under **Networking**:
+   - **Virtual Network**: Select That we created `HomeSocVnet`
+   - ** Subnet**: `Default`
+   - **Select**: Delete With VM
+   -  Under **Inbound Ports**, select: Allow all or We will configure in NSG part (lab only)
+6. Click **Review + Create** → **Create**
+7. Verify Your Public IP and take SSH
 
-📸 *[Insert Screenshot: Linux VM config]*
+📸 *[Linux VM config]*
 
 ![vmlin1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/06.Configure%20Linux%20VM/vmlin1.png)
 
