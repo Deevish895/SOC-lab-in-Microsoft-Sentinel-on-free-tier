@@ -10,60 +10,174 @@ This guide reflects a **realistic, GUI-based configuration** of a SOC lab where 
 
 ---
 
-## 🔗 Reference Flow You Followed
+# 🔌 **Understanding Sentinel Connectors & Data Collection Rules (DCR)**
 
-This setup closely follows a beginner-friendly and GUI-based approach:
-
-1. Installed Palo Alto solution from **Sentinel Content Hub**
-2. Used **Manage** on the connector page to configure AMA and DCR
-3. Used official Microsoft script to configure syslog receiver (CEF)
-4. Allowed inbound Syslog ports
-5. Configured Palo Alto firewall to forward logs to the Linux gateway
-6. Verified data ingestion in Sentinel via KQL
+In this SOC lab, we used **two different connectors** on the **Linux syslog gateway** to ingest and parse CEF-formatted logs from a Palo Alto Firewall into Microsoft Sentinel.
 
 ---
 
-## ✅ Step-by-Step Configuration
+## 🔹 Setup Overview
+
+| Component            | What You Did |
+|----------------------|---------------|
+| Syslog Connector     | Used for ingesting logs via AMA |
+| CEF Connector        | Used for parsing CEF-formatted Palo Alto logs |
+| rsyslog on Linux     | Configured to receive logs on port 514 from Palo Alto |
+| AMA Agent            | Installed on Linux to forward data to Sentinel |
+| Data Collection Rules| Created for both connectors using GUI |
 
 ---
 
-### 🟢 Step 1: Install Palo Alto Solution via Content Hub
+## 🔹 Why Two Connectors?
 
-1. Go to **Microsoft Sentinel → Content hub**
-2. Search for **"Palo Alto Networks (CEF)"**
-3. Click **Install**
-4. After installation, click **Manage Content**
-
----
-
-### 🟢 Step 2: Open Palo Alto CEF Connector
-
-1. Go to **Microsoft Sentinel → Data connectors**
-2. Search and open: **Palo Alto Networks (CEF)**
-3. Click **Open connector page**
+- **Syslog Connector via AMA** collects raw syslog messages from Linux (general logging)
+- **Common Event Format (CEF) Connector via AMA** specifically parses CEF messages from Palo Alto
+- Each requires a **separate DCR**
+- Both run **on the same Linux VM**
 
 ---
 
-### 🟢 Step 3: Install Azure Monitor Agent (AMA)
+## 🛠️ Step-by-Step Configuration
 
-1. On the connector page, under **Instructions**, click **Install agent**
-2. Select your **Linux VM (Syslog Gateway)**
-3. Click **Install**
+### ✅ Step 1: Install Syslog Connector
 
-✅ AMA will be deployed automatically via Azure backend
+- Go to **Microsoft Sentinel → Content Hub → Search → Syslog → Install**
+
+✅ AMA gets installed on the VM
+
+ ![con1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/1.Configure%20Syslog%20Connector/con1.png)
+
+ ![con2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/1.Configure%20Syslog%20Connector/con2.png)
+
+ ![con3](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/1.Configure%20Syslog%20Connector/con3.png)
+
+ ![con4](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/1.Configure%20Syslog%20Connector/con4.png)
+ 
+---
+
+### ✅ Step 2: Configure **Syslog Connector + DCR**
+- Go to Data Collection Rule
+- Click **+ Create data collection rule**
+- Scope: Linux VM
+- Severity: All
+- Facility: You can leave default (or add if customized)
+- Destination: Log Analytics Workspace
+
+#Verify the AMA Agent 
+- Go to Virtual Machine → Select Machine → Setting → Extension + application → You will see: **AMA Agent**
+
+#Verify the The Syslogs of Linux In the Sentinel
+- Go to **Sentinel → Logs → KQL Mode**
+- Search ```Syslog```
+
+✅ This DCR enables raw syslog ingestion (for Linux monitoring or general logs)
+
+ ![dcr1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/2.Configure%20Data%20Collection%20Rule/dcr1.png)
+
+ ![dcr2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/2.Configure%20Data%20Collection%20Rule/dcr2.png)
+
+ ![dcr3](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/2.Configure%20Data%20Collection%20Rule/dcr3.png)
+
+ ![dcr4](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/2.Configure%20Data%20Collection%20Rule/dcr4.png)
+
+ ![dcr5](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/2.Configure%20Data%20Collection%20Rule/dcr5.png)
+
+ ![dcr6](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/2.Configure%20Data%20Collection%20Rule/dcr6.png)
+
+ ![dcr7](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/2.Configure%20Data%20Collection%20Rule/dcr7.png)
+
+ ![dcr8](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/2.Configure%20Data%20Collection%20Rule/dcr8.png)
+
+ ![dcr9](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/2.Configure%20Data%20Collection%20Rule/dcr9.png)
+
+ ![dcr10](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/2.Configure%20Data%20Collection%20Rule/dcr10.png)
+
+ ![dcrverifify](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/2.Configure%20Data%20Collection%20Rule/dcrverifify.png)
+
+ ![log-verify](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/07.Syslog/2.Configure%20Data%20Collection%20Rule/log%20verify.png)
+
 
 ---
 
-### 🟢 Step 4: Create DCR (Data Collection Rule)
+### ✅ Step 3: Configure **CEF Connector + DCR**
 
-1. On the same connector page, click **Add data collection rule**
-2. Fill the fields:
-   - Facility: `local4`
-   - Severity: All (Info, Notice, Warning, etc.)
-   - Scope: your **Linux Syslog VM**
-   - Destination: your **Log Analytics workspace**
+- Go to ** Sentinel → Data Connectors → Common Event Format → Manage → Common Event Format(CEF) via AMA → Open Connector Page**
+- Open connector page
+- Select same **Linux VM**
+- Click **+ Create data collection rule**
+- Scope: Linux VM
+- Destination: Log Analytics Workspace
 
-✅ This configures which logs AMA will route to Sentinel
+**After Completing these steps Verify On Linux Machine: There you will see 2 jason file 1 for syslog DCR and 2nd for CEF DCR in which the DCR rule Id will be available** 
+
+```sudo -i
+   cd /etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/
+   ls
+```
+
+✅ This DCR enables parsing of CEF logs from Palo Alto (sent over syslog)
+
+ ![cef-con1](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+
+![cef-con2](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+
+![cef-con3](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+
+![cef-con4](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+
+![cef-con5](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+
+![cef-con6](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+
+![cef-con7](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+
+![cef-con8](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+
+![DCR-verify-on-linux](https://github.com/Deevish895/SOC-lab-in-Microsoft-Sentinel-on-free-tier/blob/main/Setup-Steps/setup-images/08.Configure%20CEF%20Connector%20And%20DCR/cef-con1.png).
+
+  
+
+---
+
+
+### ✅ Step 4: Configure **Log Forwarder On Linux**
+
+- Go to ** Sentinel → Data Connectors → Common Event Format → Manage → Common Event Format(CEF) via AMA → Open Connector Page**
+- Open connector page
+- Select same **Linux VM**
+- Click **+ Create data collection rule**
+- Scope: Linux VM
+- Destination: Log Analytics Workspace
+
+
+---
+
+
+### ✅ Step 4: Configure **rsyslog on Linux**
+
+1. SSH into your Linux VM  
+2. Edit `/etc/rsyslog.conf` or `/etc/rsyslog.d/99-cef.conf`  
+3. Add listener configuration (TCP or UDP):
+
+```bash
+# For TCP
+module(load="imtcp")
+input(type="imtcp" port="514")
+
+# Or for UDP
+module(load="imudp")
+input(type="imudp" port="514")
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 
@@ -79,7 +193,7 @@ curl -s https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnec
 
 ---
 
-### 🟢 Step 6: Allow Syslog Traffic on Port 514
+### 🟢 Step 6: Allow Syslog Traffic on Port 514 In NSG
 
 #### In Azure:
 
